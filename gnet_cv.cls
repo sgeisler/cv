@@ -7,14 +7,14 @@
 \pagenumbering{gobble}
 
 \titleformat{\section}         % Customise the \section command 
-  {\Large\scshape\raggedright} % Make the \section headers large (\Large),
+  {\large\scshape\raggedright} % Make the \section headers large (\Large),
                                % small capitals (\scshape) and left aligned (\raggedright)
   {}{0em}                      % Can be used to give a prefix to all sections, like 'Section ...'
   {}                           % Can be used to insert code before the heading
 [\titlerule] % Inserts a horizontal line after the heading
 
 \titleformat{\subsection}
-  {\large\scshape\raggedright}
+  {\scshape\raggedright}
   {}{0em}
 {}
 
@@ -32,4 +32,5 @@
 \newcommand{\contact}[6]{
     \center{#1 {\large\textperiodcentered} #2 {\large\textperiodcentered} #3}
     \center{{\Large} \texttt{#4} \ {\Large} #5}
+    \center{\texttt{\scriptsize #6}}
 }

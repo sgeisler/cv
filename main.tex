@@ -1,5 +1,5 @@
 \documentclass{gnet_cv}
-\usepackage[a4paper, margin=1.5in]{geometry}
+\usepackage[a4paper, hmargin=1.5in, vmargin=1in]{geometry}
 \usepackage[utf8]{inputenc}
 
 \usepackage{eqparbox,array,tabularx}
@@ -26,10 +26,9 @@
 \makeatother
 
 \begin{document}
-
 \name{Sebastian Geisler}
-\contact{\AddressStreet}{{\AddressZip} Dresden}{Germany}{sgeisler@wh2.tu-dresden.de}{\Phone}
-
+\contact{\AddressStreet}{{\AddressZip} Dresden}{Germany}{sgeisler@wh2.tu-dresden.de}{\Phone}{392D 446E 7C91 E184 1554  2AD1 E90F 8167 5F43 A972}
+%
 \section{Education}
 \begin{tabularx}{\textwidth}{L{mylhead} l}
     2015 -- now & undergraduate compuer science student at TU Dresden \\
@@ -37,25 +36,27 @@
     2013 -- 2015 & Wilhelm-Ostwald-Gymnasium Leipzig \footnote{secondary school with focus on math and natural sciences}\\
     2007 -- 2013 & Christian-Gottfried-Ehrenberg-Gymnasium Delitzsch \footnote{secodary school}
 \end{tabularx}
-
+%
 \section{Work}
-{\hbadness=10000
 \begin{tabularx}{\textwidth}{L{mylhead} l}
     2016 -- now & Java developer at \CompanyOne\\
     2016 & university software technology project at \CompanyTwo
 \end{tabularx}
-}
-
+%
+\section{Volunteering}
+\begin{tabularx}{\textwidth}{L{mylhead} l}
+    2016 -- now & Board member of \href{https://agdsn.de}{AG DSN} \footnote{The AG\ DSN ist an ISP in dormitories that is run by students interested in computer networks}\\
+    2015 -- now & Active member of AG DSN
+\end{tabularx}
+%
 \section{Skills}
 \subsection{Languages}
-{\hbadness=10000
 \begin{tabularx}{\textwidth}{L{mylhead} l}
     German & native speaker\\
     English & C2 Certificate with mark 1.7\\
     Latin & Latinum
 \end{tabularx}
-}
-
+%
 \subsection{Programming Languages}
 \begin{tabularx}{\textwidth}{L{mylhead} l}
     Java & good knowlede of Java, JPA and JUnit\\
@@ -64,20 +65,28 @@
     Python & good enough for scripting\\
     
 \end{tabularx}
-
+%
 \subsection{Plattforms}
 \begin{tabularx}{\textwidth}{L{mylhead} l}
     Linux & good knowledge of Linux server administration\\
     Docker & basic knowledge about docker (mainly in CI context)\\
     
 \end{tabularx}
-
+%
 \section{Interests}
+\begin{minipage}[t]{0.45\textwidth}
 \begin{itemize}
+    \setlength\itemsep{0pt}
     \item Cryptography
     \item Resilience engineering
+    \item DSLs and code generation
+\end{itemize}
+\end{minipage}
+\begin{minipage}[t]{0.45\textwidth}
+\begin{itemize}
+    \setlength\itemsep{0pt}
     \item Decentralized systems
     \item SciFi
 \end{itemize}
-
+\end{minipage}
 \end{document} 
