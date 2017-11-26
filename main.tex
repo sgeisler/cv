@@ -1,0 +1,83 @@
+\documentclass{gnet_cv}
+\usepackage[a4paper, margin=1.5in]{geometry}
+\usepackage[utf8]{inputenc}
+
+\usepackage{eqparbox,array,tabularx}
+\usepackage{censor}
+\usepackage{hyperref}
+
+% defiine secrets as censor boxes
+\def\CompanyOne{\censor*{30}}
+\def\CompanyTwo{\censor*{8}}
+\def\AddressStreet{\censor*{20}}
+\def\AddressZip{\censor*{6}}
+\def\Phone{\censor*{18}}
+
+% redefine secrets with actual data if available
+\include{secret}
+
+\newcolumntype{L}[1]{>{\begin{lrbox}{\csname#1box\endcsname}}r%
+  <{\end{lrbox}\eqmakebox[#1][l]{\unhcopy\csname#1box\endcsname\strut}}}
+\newsavebox{\mylheadbox}
+\newlength{\mylheadwd}
+\makeatletter
+\AtBeginDocument{\setlength{\mylheadwd}{%
+  \@ifundefined{eqp@this@mylhead}{0pt}{\eqp@this@mylhead}}}
+\makeatother
+
+\begin{document}
+
+\name{Sebastian Geisler}
+\contact{\AddressStreet}{{\AddressZip} Dresden}{Germany}{sgeisler@wh2.tu-dresden.de}{\Phone}
+
+\section{Education}
+\begin{tabularx}{\textwidth}{L{mylhead} l}
+    2015 -- now & undergraduate compuer science student at TU Dresden \\
+    2015 & finished A levels with mark 1.8\\
+    2013 -- 2015 & Wilhelm-Ostwald-Gymnasium Leipzig \footnote{secondary school with focus on math and natural sciences}\\
+    2007 -- 2013 & Christian-Gottfried-Ehrenberg-Gymnasium Delitzsch \footnote{secodary school}
+\end{tabularx}
+
+\section{Work}
+{\hbadness=10000
+\begin{tabularx}{\textwidth}{L{mylhead} l}
+    2016 -- now & Java developer at \CompanyOne\\
+    2016 & university software technology project at \CompanyTwo
+\end{tabularx}
+}
+
+\section{Skills}
+\subsection{Languages}
+{\hbadness=10000
+\begin{tabularx}{\textwidth}{L{mylhead} l}
+    German & native speaker\\
+    English & C2 Certificate with mark 1.7\\
+    Latin & Latinum
+\end{tabularx}
+}
+
+\subsection{Programming Languages}
+\begin{tabularx}{\textwidth}{L{mylhead} l}
+    Java & good knowlede of Java, JPA and JUnit\\
+    C++ & knowledge of modern idiomatic C++ 11/14\\
+    Rust & intermediate learner\\
+    Python & good enough for scripting\\
+    
+\end{tabularx}
+
+\subsection{Plattforms}
+\begin{tabularx}{\textwidth}{L{mylhead} l}
+    Linux & good knowledge of Linux server administration\\
+    Docker & basic knowledge about docker (mainly in CI context)\\
+    
+\end{tabularx}
+
+\section{Interests}
+\begin{itemize}
+    \item Cryptography
+    \item Resilience engineering
+    \item Decentralized systems
+    \item SciFi
+\end{itemize}
+
+\end{document} 
