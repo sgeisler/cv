@@ -2,9 +2,16 @@
 \usepackage[a4paper, hmargin=1.5in, vmargin=1in]{geometry}
 \usepackage[utf8]{inputenc}
 
-\usepackage{eqparbox,array,tabularx}
+
 \usepackage{censor}
 \usepackage{hyperref}
+\usepackage[normalem]{ulem}
+
+\hypersetup{%
+  pdfborder=0 0 0
+}
+
+%\renewcommand[2]{\href}{\href{#1}{\dashuline{#2}}}
 
 % defiine secrets as censor boxes
 \def\CompanyOne{\censor*{30}}
@@ -16,63 +23,59 @@
 % redefine secrets with actual data if available
 \include{secret}
 
-\newcolumntype{L}[1]{>{\begin{lrbox}{\csname#1box\endcsname}}r%
-  <{\end{lrbox}\eqmakebox[#1][l]{\unhcopy\csname#1box\endcsname\strut}}}
-\newsavebox{\mylheadbox}
-\newlength{\mylheadwd}
-\makeatletter
-\AtBeginDocument{\setlength{\mylheadwd}{%
-  \@ifundefined{eqp@this@mylhead}{0pt}{\eqp@this@mylhead}}}
-\makeatother
 
 \begin{document}
 \name{Sebastian Geisler}
-\contact{\AddressStreet}{{\AddressZip} Dresden}{Germany}{sgeisler@wh2.tu-dresden.de}{\Phone}{392D 446E 7C91 E184 1554  2AD1 E90F 8167 5F43 A972}
-%
+\contact
+{\AddressStreet}
+{{\AddressZip} Dresden}
+{Germany}
+{sgeisler@wh2.tu-dresden.de}
+{\Phone}
+{392D 446E 7C91 E184 1554  2AD1 E90F 8167 5F43 A972}
+
 \section{Education}
-\begin{tabularx}{\textwidth}{L{mylhead} l}
+\cvtable{
     2015 -- now & undergraduate compuer science student at TU Dresden \\
     2015 & finished A levels with mark 1.8\\
     2013 -- 2015 & Wilhelm-Ostwald-Gymnasium Leipzig \footnote{secondary school with focus on math and natural sciences}\\
     2007 -- 2013 & Christian-Gottfried-Ehrenberg-Gymnasium Delitzsch \footnote{secodary school}
-\end{tabularx}
-%
+}
+
 \section{Work}
-\begin{tabularx}{\textwidth}{L{mylhead} l}
+\cvtable{
     2016 -- now & Java developer at \CompanyOne\\
     2016 & university software technology project at \CompanyTwo
-\end{tabularx}
-%
+}
+
 \section{Volunteering}
-\begin{tabularx}{\textwidth}{L{mylhead} l}
+\cvtable{
     2016 -- now & Board member of \href{https://agdsn.de}{AG DSN} \footnote{The AG\ DSN ist an ISP in dormitories that is run by students interested in computer networks}\\
-    2015 -- now & Active member of AG DSN
-\end{tabularx}
-%
+    2015 -- now & Active member of \href{https://agdsn.de}{AG DSN}
+}
+
 \section{Skills}
 \subsection{Languages}
-\begin{tabularx}{\textwidth}{L{mylhead} l}
+\cvtable{
     German & native speaker\\
-    English & C2 Certificate with mark 1.7\\
-    Latin & Latinum
-\end{tabularx}
-%
+    English & C1 Certificate with mark 1.6\\
+    Latin & from grade 6 to 12
+}
+
 \subsection{Programming Languages}
-\begin{tabularx}{\textwidth}{L{mylhead} l}
+\cvtable{
     Java & good knowlede of Java, JPA and JUnit\\
     C++ & knowledge of modern idiomatic C++ 11/14\\
     Rust & intermediate learner\\
-    Python & good enough for scripting\\
-    
-\end{tabularx}
-%
+    Python & good enough for scripting    
+}
+
 \subsection{Plattforms}
-\begin{tabularx}{\textwidth}{L{mylhead} l}
+\cvtable{
     Linux & good knowledge of Linux server administration\\
-    Docker & basic knowledge about docker (mainly in CI context)\\
-    
-\end{tabularx}
-%
+    Docker & basic knowledge about docker (mainly in CI context)
+}
+
 \section{Interests}
 \begin{minipage}[t]{0.45\textwidth}
 \begin{itemize}

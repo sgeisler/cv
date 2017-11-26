@@ -3,6 +3,9 @@
 
 \LoadClass{article}
 \RequirePackage{titlesec}
+\RequirePackage{eqparbox}
+\RequirePackage{array}
+\RequirePackage{tabularx}
 
 \pagenumbering{gobble}
 
@@ -33,4 +36,19 @@
     \center{#1 {\large\textperiodcentered} #2 {\large\textperiodcentered} #3}
     \center{{\Large} \texttt{#4} \ {\Large} #5}
     \center{\texttt{\scriptsize #6}}
+}
+
+\newcolumntype{L}[1]{>{\begin{lrbox}{\csname#1box\endcsname}}r%
+  <{\end{lrbox}\eqmakebox[#1][l]{\unhcopy\csname#1box\endcsname\strut}}}
+\newsavebox{\mylheadbox}
+\newlength{\mylheadwd}
+\makeatletter
+\AtBeginDocument{\setlength{\mylheadwd}{%
+  \@ifundefined{eqp@this@mylhead}{0pt}{\eqp@this@mylhead}}}
+\makeatother
+
+\newcommand{\cvtable}[1]{
+\begin{tabularx}{\textwidth}{L{mylhead} l}
+    #1                                                
+\end{tabularx}
 }
