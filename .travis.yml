@@ -1,0 +1,14 @@
+sudo: required
+
+before_install:
+- sudo apt-get update 
+- sudo apt-get install texlive-latex-extra latexmk texlive-lang-german
+
+script:
+- ./build.sh
+
+deploy:
+  - provider: script
+    script: /bin/bash -c "./build.sh; git add -f main.pdf; git commit -m 'compile cv'; git push -f https://sgeisler:$GH_TOKEN@github.com/sgeisler/cv.git HEAD:gh-pages"
+    on:
+      branch: master
