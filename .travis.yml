@@ -1,14 +1,10 @@
 sudo: required
+if: branch = master
 
 before_install:
 - sudo apt-get update 
-- sudo apt-get install texlive-latex-extra latexmk texlive-lang-german
+- sudo apt-get install texlive-full latexmk texlive-lang-german 
 
 script:
-- ./build.sh
+- /bin/bash -c "./build.sh; git add -f main.pdf; git commit -m 'compile cv'; git push -f https://sgeisler:$GH_TOKEN@github.com/sgeisler/cv.git HEAD:gh-pages"
 
-deploy:
-  - provider: script
-    script: /bin/bash -c "./build.sh; git add -f main.pdf; git commit -m 'compile cv'; git push -f https://sgeisler:$GH_TOKEN@github.com/sgeisler/cv.git HEAD:gh-pages"
-    on:
-      branch: master
